@@ -4,16 +4,36 @@ import { Colors } from '../utils/Colors'
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
+import AttendanceEvent from '../components/AttendanceEvent';
+import NewEvent from '../components/modals/NewEvent';
+import EditEvent from '../components/modals/EditEvent';
 
 
 const Attendance = () => {
     const [search, setSearch] = useState("");
+    const [openNew, setOpenNew] = useState(false);
+    const [openEdit, setOpenedit] = useState(false);
 
     const navigation = useNavigation();
 
     const backPressed = () => {
         navigation.goBack();
     }
+    const openNewHandler = () => {
+        setOpenNew(true);
+    }
+    const openEditHandler = () => {
+        setOpenedit(true);
+    }
+
+    const closeNew = () => {
+        setOpenNew(false);
+    }
+    const closeEdit = () => {
+        setOpenedit(false);
+    }
+
+
 
     return (
         <View style={styles.container}>
@@ -33,8 +53,8 @@ const Attendance = () => {
                         value={search}
                         style={styles.inputStyle}
                         placeholder="Search for event"
-                        placeholderTextColor="#000"
-                        cursorColor="#000"
+                        placeholderTextColor={Colors.lightDark}
+                        cursorColor={Colors.lightDark}
                         returnKeyType='search'
                     />
                     {
@@ -51,13 +71,39 @@ const Attendance = () => {
                     }
                 </View>
             </View>
-            <ScrollView style={styles.content}>
-
+            <ScrollView
+                bounces={true}
+                showsVerticalScrollIndicator={false}
+                style={styles.content}>
+                <AttendanceEvent
+                    eventTitle={'Event title'}
+                    attendance={'0'}
+                    date={'20/02/2023'}
+                    press={openEditHandler}
+                />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
+                <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
             </ScrollView>
 
-            <Pressable style={styles.floatingBtn}>
+            <Pressable
+                style={styles.floatingBtn}
+                onPress={openNewHandler}
+            >
                 <MaterialIcon name="add" size={30} color={Colors.darkPrimary} />
             </Pressable>
+            <NewEvent openNew={openNew} closeNew={closeNew} />
+            <EditEvent openEdit={openEdit} closeEdit={closeEdit} />
+
         </View>
     )
 }
@@ -74,6 +120,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
+        elevation: 5,
         bottom: 20,
         right: 20,
         backgroundColor: Colors.white,
@@ -104,15 +151,18 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         marginTop: 1,
-        padding: 10
-        // justifyContent: 'center'
+        paddingHorizontal: 5,
+        paddingVertical: 10,
     },
 
     searchContainer: {
         width: '100%',
+        // marginBottom: 10,
         paddingHorizontal: 10,
         paddingVertical: 10,
         backgroundColor: Colors.white,
+        elevation: 0
+
     },
     searchBox: {
         height: 40,
