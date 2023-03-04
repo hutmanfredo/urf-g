@@ -10,6 +10,7 @@ import Attendance from './screens/Attendance';
 import Reports from './screens/Reports';
 import Zonal from './screens/Zonal';
 import Branches from './screens/Branches';
+import AttendaceInfo from './screens/AttendanceInfo';
 const Stack = createStackNavigator();
 
 const StackScreens = () => {
@@ -22,6 +23,7 @@ const StackScreens = () => {
         <Stack.Screen name="Leaders" component={Leaders} />
         <Stack.Screen name="Financial" component={Financial} />
         <Stack.Screen name="Attendance" component={Attendance} />
+        <Stack.Screen name="AttendaceInfo" component={AttendaceInfo} />
         <Stack.Screen name="Reports" component={Reports} />
         <Stack.Screen name="Zonal" component={Zonal} />
         <Stack.Screen name="Branches" component={Branches} />

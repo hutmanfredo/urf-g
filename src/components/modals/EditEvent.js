@@ -2,6 +2,7 @@ import { Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'rea
 import React from 'react'
 import { Colors } from '../../utils/Colors'
 import IonIcon from 'react-native-vector-icons/Ionicons';
+import AttendeesCard from '../AttendeesCard';
 
 const EditEvent = ({ openEdit, closeEdit }) => {
     return (
@@ -25,7 +26,15 @@ const EditEvent = ({ openEdit, closeEdit }) => {
                 showsVerticalScrollIndicator={false}
             >
                 <View style={styles.content}>
-                    <Text style={styles.txt}>Attendance: {10}</Text>
+                    <View style={styles.header}>
+                        <Text style={styles.txt}>Attendees</Text>
+                    </View>
+                    <View style={{ height: 5 }} />
+                    <View style={styles.attendeesCard}>
+                        <AttendeesCard name={"Francis Quartey"} time={"7:40 PM"} />
+                        <AttendeesCard name={"Samuel Quartey"} time={"7:40 PM"} />
+                        <AttendeesCard name={"Cedric Oppong"} time={"7:40 PM"} />
+                    </View>
                 </View>
             </ScrollView>
         </Modal>
@@ -58,8 +67,8 @@ const styles = StyleSheet.create({
     },
 
     txt: {
-        color: Colors.darkSeccondary,
-        fontSize: 15,
+        color: Colors.lightDark,
+        fontSize: 16,
         fontWeight: '700'
     },
 
@@ -70,6 +79,10 @@ const styles = StyleSheet.create({
 
     content: {
         flex: 1
+    },
+
+    header: {
+        marginLeft: 10
     },
 
 })

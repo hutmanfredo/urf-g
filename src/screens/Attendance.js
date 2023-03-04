@@ -22,16 +22,16 @@ const Attendance = () => {
     const openNewHandler = () => {
         setOpenNew(true);
     }
-    const openEditHandler = () => {
-        setOpenedit(true);
+    const AttendaceInfo = () => {
+        navigation.navigate("AttendaceInfo");
     }
 
     const closeNew = () => {
         setOpenNew(false);
     }
-    const closeEdit = () => {
-        setOpenedit(false);
-    }
+    // const closeEdit = () => {
+    //     setOpenedit(false);
+    // }
 
 
 
@@ -79,7 +79,7 @@ const Attendance = () => {
                     eventTitle={'Event title'}
                     attendance={'0'}
                     date={'20/02/2023'}
-                    press={openEditHandler}
+                    press={AttendaceInfo}
                 />
                 <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
                 <AttendanceEvent eventTitle={'Event title'} attendance={'230'} date={'20/02/2023'} />
@@ -102,7 +102,7 @@ const Attendance = () => {
                 <MaterialIcon name="add" size={30} color={Colors.darkPrimary} />
             </Pressable>
             <NewEvent openNew={openNew} closeNew={closeNew} />
-            <EditEvent openEdit={openEdit} closeEdit={closeEdit} />
+            {/* <EditEvent openEdit={openEdit} closeEdit={closeEdit} /> */}
 
         </View>
     )
