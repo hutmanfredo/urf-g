@@ -9,9 +9,7 @@ import { Colors } from './src/utils/Colors';
 const App = () => {
 
   return (
-    <GlobalContext.Provider value={{
-      openAttendeeTime, setOpenAttendeeTime, openEdit, setOpenedit
-    }}>
+    <GlobalContext.Provider value={{}}>
       <StatusBar barStyle='dark-content' backgroundColor={Colors.white} />
       <StackScreens />
     </GlobalContext.Provider>

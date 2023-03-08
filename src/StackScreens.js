@@ -11,6 +11,7 @@ import Reports from './screens/Reports';
 import Zonal from './screens/Zonal';
 import Branches from './screens/Branches';
 import AttendaceInfo from './screens/AttendanceInfo';
+import MembersDetails from './screens/MembersDetails';
 const Stack = createStackNavigator();
 
 const StackScreens = () => {
@@ -19,6 +20,7 @@ const StackScreens = () => {
       <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Members" component={Members} />
+        <Stack.Screen name="MemberDetails" component={MembersDetails} />
         <Stack.Screen name="Departments" component={Departments} />
         <Stack.Screen name="Leaders" component={Leaders} />
         <Stack.Screen name="Financial" component={Financial} />
