@@ -6,13 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import AttendanceEvent from '../components/AttendanceEvent';
 import NewEvent from '../components/modals/NewEvent';
-import EditEvent from '../components/modals/EditEvent';
+import EditEvent from '../components/modals/NewAttendee';
 
 
 const Attendance = () => {
     const [search, setSearch] = useState("");
     const [openNew, setOpenNew] = useState(false);
-    const [openEdit, setOpenedit] = useState(false);
 
     const navigation = useNavigation();
 
@@ -150,7 +149,7 @@ const styles = StyleSheet.create({
 
     content: {
         flex: 1,
-        marginTop: 1,
+        // marginTop: 1,
         paddingHorizontal: 5,
         paddingVertical: 10,
     },
